@@ -31,33 +31,35 @@ function render() {
     const emptyState = document.getElementById('empty-state');
     const template = document.getElementById('job-card-template');
 
-    const filteredJobs = jobs.filter(function(jon){
-        if (activeFilter == 'all') {
+    const filteredJobs = jobs.filter(function(job){
+        if (activeFilter === 'all') {
             return true;
         } else {
-            return job.status == activeFilter;
+            return job.status === activeFilter;
         }
     });
 
 
     document.getElementById('stat-total').innerText = jobs.length;
-    document.getElementById('stat-interview').innerText = jobs.filter(j => j.status == 'interview').length;
-    document.getElementById('stat-rejected').innerText = jobs.filter(j => j.status == 'rejected').length;
+    document.getElementById('stat-interview').innerText = jobs.filter(j => j.status === 'interview').length;
+    document.getElementById('stat-rejected').innerText = jobs.filter(j => j.status === 'rejected').length;
     document.getElementById('current-count').innerText = filteredJobs.length;
 
     grid.innerHTML = "";
 
-    if (filteredJobs.length == 0) {
+    if (filteredJobs.length === 0) {
         emptyState.classList.remove('hidden');
         emptyState.classList.add('flex');
         return;
     }
+
     emptyState.classList.remove('flex');
     emptyState.classList.add('hidden');
 
 
     filteredJobs.forEach(function(job) {
-        const card = template.contentEditable.cloneNode(true);
+
+        const card = template.content.cloneNode(true);
 
         card.querySelector('.company-name').innerText = job.company;
         card.querySelector('.job-title').innerText = job.title;
@@ -70,15 +72,15 @@ function render() {
         const rejBtn = card.querySelector('.rejected-btn');
         const deleteBtn = card.querySelector('.delete-btn');
 
-        if (job.status == 'interview') {
+        if (job.status === 'interview') {
             intBtn.classList.remove('btn-outline');
-        } else if (job.status == 'rejected') {
+        } else if (job.status === 'rejected') {
             rejBtn.classList.remove('btn-outline');
         }
 
-        intBtn.onclick = function () {updateStatus(job.id,'interview'); };
-        rejBtn.onclick = function () {updateStatus(job.id,'rejected'); };
-        deleteBtn.onclick = function () {removeJob(job.id); };
+        intBtn.onclick = function () { updateStatus(job.id,'interview'); };
+        rejBtn.onclick = function () { updateStatus(job.id,'rejected'); };
+        deleteBtn.onclick = function () { removeJob(job.id); };
 
         grid.appendChild(card);
     });
@@ -98,7 +100,7 @@ function setFilter(filterName) {
 
 
 function updateStatus(jobId, newStatus) {
-    jobs = jobs.map(function(job) {
+    jobs = jobs.map(job => {
         if(job.id == jobId) {
             let updatedStatus;
 
@@ -113,6 +115,13 @@ function updateStatus(jobId, newStatus) {
 
         return job;
     });
-    
+
     render();
 }
+
+function removeJob(jobId) {
+    jobs = jobs.filter(job => job.id != jobId);
+    render();
+}
+
+render();

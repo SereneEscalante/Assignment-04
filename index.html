@@ -33,31 +33,31 @@
 
     <!-- title part -->
     <div class="max-w-6xl mx-auto px-4 py-8">
-        <h1 class="text-3xl font-extrabold text-[#002C5C]">Job Application Tracker</h1>
+        <h1 class="text-3xl font-extrabold text-[#002C5C] mb-8">Job Application Tracker</h1>
 
         <!-- application part -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
 
             <!-- total div -->
-            <div class="bg-white p-6 rounded-xl border border-base-200 shadow-sm">
-                <h1 class="text-sm font-semibold text-base-content/60 mb-2 tracking-wide">Total</h1>
-                <p id="start-toral" class="text-4xl font-black text-base-content">0</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                <h1 class="text-sm font-semibold text-slate-500 mb-2 tracking-wide">Total</h1>
+                <p id="stat-total" class="text-4xl font-black text-slate-800">0</p>
             </div>
 
             <!-- interview div -->
-            <div class="bg-white p-6 rounded-xl border border-base-200 shadow-sm">
-                <h1 class="text-sm font-semibold text-base-content/60 mb-2 tracking-wide">Interview</h1>
-                <p id="start-toral" class="text-4xl font-black text-base-content">0</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                <h1 class="text-sm font-semibold text-slate-500 mb-2 tracking-wide">Interview</h1>
+                <p id="stat-total" class="text-4xl font-black text-slate-800">0</p>
             </div>
 
             <!-- rejected div -->
-            <div class="bg-white p-6 rounded-xl border border-base-200 shadow-sm">
-                <h1 class="text-sm font-semibold text-base-content/60 mb-2 tracking-wide">Rejected</h1>
-                <p id="start-toral" class="text-4xl font-black text-base-content">0</p>
+            <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
+                <h1 class="text-sm font-semibold text-slate-500 mb-2 tracking-wide">Rejected</h1>
+                <p id="stat-total" class="text-4xl font-black text-slate-800">0</p>
             </div>
         </div>
 
-        <hr class="text-base-content-60">
+        <div class="divider"></div>
 
         <!-- job part -->
         <div class="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
@@ -88,7 +88,6 @@
             <h3 class="text-2xl font-bold text-[#002C5C] mb-2">No jobs available</h3>
             <p class="opacity-60">Check back soon for new job opportunities</p>
         </div>
-
     </div>
 
     <!-- cards part -->
@@ -100,20 +99,20 @@
                     <!-- company name + title name -->
                     <div>
                         <h3 class="company-name text-xl font-bold text-[#002C5C]"></h3>
-                        <p class="job-title text-[#64748B]"></p>
+                        <p class="job-title text-[#64748B] font-medium pt-1"></p>
                     </div>
 
                     <!-- trash can -->
-                    <button class="delete-btn btn btn btn-ghost btn-sm text-black">
+                    <button class="delete-btn btn btn-ghost btn-sm text-black">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
 
                 <!-- the jobs and others -->
-                <div class="flex gap-2 text-sm text-[#] mt-2">
-                    <span class="location"></span>
-                    <span class="job-type">
-                    </span class="salary"><span></span>
+                <div class="flex gap-2 text-sm text-[#64748B] mt-2">
+                    <span class="location"></span> • 
+                    <span class="job-type"></span> • 
+                    <span class="salary"></span>
                 </div>
 
                 <!-- not applied part -->
