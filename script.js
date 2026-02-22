@@ -23,3 +23,19 @@ let jobs = [
     //job-8
     {id: 8, company: "TechCorp Industries", title: "Senior Frontend Developer", location: "San Francisco, CA", type: "Full-time", salary: "$130,000 - $175,000", description: "We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.", status: "all"}
 ];
+
+let activeFilter = 'all';
+
+function render() {
+    const grid = document.getElementById('job-grid');
+    const emptyState = document.getElementById('empty-state');
+    const template = document.getElementById('job-card-template');
+
+    const filteredJobs = jobs.filter(function(jon){
+        if (activeFilter == 'all') {
+            return true;
+        } else {
+            return job.status == activeFilter;
+        }
+    });
+}
