@@ -95,3 +95,24 @@ function setFilter(filterName) {
 
     render();
 }
+
+
+function updateStatus(jobId, newStatus) {
+    jobs = jobs.map(function(job) {
+        if(job.id == jobId) {
+            let updatedStatus;
+
+            if (job.status == newStatus) {
+                updatedStatus = 'all';
+            } else {
+                updatedStatus = newStatus;
+            }
+
+            return { ...job, status: updatedStatus};
+        }
+
+        return job;
+    });
+    
+    render();
+}
