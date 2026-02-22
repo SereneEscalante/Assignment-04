@@ -10,6 +10,9 @@
 
     <!-- tailwind + css -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    
+    <!-- daisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
     <!-- geist font from google -->
@@ -41,42 +44,45 @@
             <!-- total div -->
             <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
                 <h1 class="text-sm font-semibold text-slate-500 mb-2 tracking-wide">Total</h1>
-                <p id="stat-total" class="text-4xl font-black text-slate-800">0</p>
+                <p id="stat-total" class="text-3xl font-black text-slate-800">0</p>
             </div>
 
             <!-- interview div -->
             <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
                 <h1 class="text-sm font-semibold text-slate-500 mb-2 tracking-wide">Interview</h1>
-                <p id="stat-total" class="text-4xl font-black text-slate-800">0</p>
+                <p id="stat-interview" class="text-3xl font-black text-success">0</p>
             </div>
 
             <!-- rejected div -->
             <div class="bg-white p-6 rounded-xl border border-slate-100 shadow-sm">
                 <h1 class="text-sm font-semibold text-slate-500 mb-2 tracking-wide">Rejected</h1>
-                <p id="stat-total" class="text-4xl font-black text-slate-800">0</p>
+                <p id="stat-rejected" class="text-3xl font-black text-error">0</p>
             </div>
         </div>
 
         <div class="divider"></div>
 
         <!-- job part -->
-        <div class="pt-8 flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+        <div class="pt-6 flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
 
             <!-- middle part -->
             <div>
                 <h2 class="text-xl font-bold text-[#002C5C] mb-4">Available Jobs</h2>
 
                 <!-- buttons -->
-                <div role="tablist" class="tabs tabs-boxed flex bg-white">
-                    <button role="tab" id="tab-all" class="tab tab-active" onclick="setFilter('all')">All</button>
-                    <button role="tab" id="tab-interview" class="tab tab-active" onclick="setFilter('interview')">Interview</button>
-                    <button role="tab" id="tab-rejected" class="tab tab-active" onclick="setFilter('rejected')">Rejected</button>
+                <div role="tablist" class="tabs tabs-boxed flex">
+
+                    <button role="tab" id="tab-all" class="tab tab-active h-auto py-2 px-5 rounded-lg transition-all duration-200 text-[#64748B] font-medium border border-slate-200 hover:border-slate-300 hover:bg-[#3B82F6] hover:text-white mr-2" onclick="setFilter('all')">All</button>
+
+                    <button role="tab" id="tab-interview" class="tab h-auto py-2 px-5 rounded-lg transition-all duration-200 text-[#64748B] font-medium border border-slate-200 hover:border-slate-300 hover:bg-[#3B82F6] hover:text-white mr-2" onclick="setFilter('interview')">Interview</button>
+
+                    <button role="tab" id="tab-rejected" class="tab h-auto py-2 px-5 rounded-lg transition-all duration-200 text-[#64748B] font-medium border border-slate-200 hover:border-slate-300 hover:bg-[#3B82F6] hover:text-white" onclick="setFilter('rejected')">Rejected</button>
                 </div>
             </div>
 
             <!-- how many jobs -->
             <div class="text-base-content opacity-50 font-medium">
-                <span id="current-count">0</span>jobs
+                <span id="current-count">0</span> jobs
             </div>
         </div>
 
@@ -103,7 +109,7 @@
                     </div>
 
                     <!-- trash can -->
-                    <button class="delete-btn btn btn-ghost btn-sm text-black">
+                    <button class="delete-btn btn btn-ghost btn-sm text-black text-lg">
                         <i class="fa-regular fa-trash-can"></i>
                     </button>
                 </div>
@@ -116,7 +122,7 @@
                 </div>
 
                 <!-- not applied part -->
-                <div class="badge bg-[#F2F4F7] text-[#002C5C] border-none font-bold py-4 px-6 my-4">NOT APPLIED</div>
+                <div class="badge bg-[#eef0ff] text-[#002C5C] border-none font-semibold py-5 px-5 rounded-xl my-4 tracking-wide">NOT APPLIED</div>
 
                 <p class="description text-[#64748B] text-sm leading-relaxed"></p>
 
