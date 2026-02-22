@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Application Tracker</title>
 
-    <!-- image link -->
-    <link rel="stylesheet" href="">
+    <!-- logo link -->
+    <link rel="stylesheet" href="./assets/logo.png">
 
     <!-- tailwind + css -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
@@ -92,7 +92,43 @@
     </div>
 
     <!-- cards part -->
-     
+    <template id="job-card-template">
+        <div class="card bg-white border border-[#E5E7EB] shadow-sm hover:shadow-xl hover:shadow-blue-200/40 transition-all duration-300">
+            <div class="card-body p-6">
+                <div class="flex justify-between items-start">
+
+                    <!-- company name + title name -->
+                    <div>
+                        <h3 class="company-name text-xl font-bold text-[#002C5C]"></h3>
+                        <p class="job-title text-[#64748B]"></p>
+                    </div>
+
+                    <!-- trash can -->
+                    <button class="delete-btn btn btn btn-ghost btn-sm text-black">
+                        <i class="fa-regular fa-trash-can"></i>
+                    </button>
+                </div>
+
+                <!-- the jobs and others -->
+                <div class="flex gap-2 text-sm text-[#] mt-2">
+                    <span class="location"></span>
+                    <span class="job-type">
+                    </span class="salary"><span></span>
+                </div>
+
+                <!-- not applied part -->
+                <div class="badge bg-[#F2F4F7] text-[#002C5C] border-none font-bold py-4 px-6 my-4">NOT APPLIED</div>
+
+                <p class="description text-[#64748B] text-sm leading-relaxed"></p>
+
+                <div class="card-actions justify-start mt-6">
+                    <button class="interview-btn btn btn-sm btn-outline btn-success px-6">INTERVIEW</button>
+                    <button class="rejected-btn btn btn-sm btn-outline btn-error px-6">REJECTED</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
 
     <!-- js addition -->
     <script src="./script.js"></script>
