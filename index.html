@@ -64,13 +64,17 @@
 
             <!-- middle part -->
             <div>
-                <h2>Available Jobs</h2>
-                <div>
-                    <button>All</button>
-                    <button>Interview</button>
-                    <button>Rejected</button>
+                <h2 class="text-xl font-bold text-[#002d5b] mb-4">Available Jobs</h2>
+
+                <!-- buttons -->
+                <div role="tablist" class="tabs tabs-boxed flex bg-white">
+                    <button role="tab" id="tab-all" class="tab tab-active" onclick="setFilter('all')">All</button>
+                    <button role="tab" id="tab-interview" class="tab tab-active" onclick="setFilter('interview')">Interview</button>
+                    <button role="tab" id="tab-rejected" class="tab tab-active" onclick="setFilter('rejected')">Rejected</button>
                 </div>
             </div>
+
+            <!-- how many jobs -->
             <div>
                 <span>0</span>jobs
             </div>
