@@ -82,7 +82,16 @@ function render() {
 
         grid.appendChild(card);
     });
+}
 
 
+function setFilter(filterName) {
+    activeFilter = filterName;
 
+    const allTabs = document.querySelectorAll('.tab');
+    allTabs.forEach(t => t.classList.remove('tab-active'));
+
+    document.getElementById(`tab-${filterName}`).classList.add('tab-active');
+
+    render();
 }
