@@ -38,4 +38,51 @@ function render() {
             return job.status == activeFilter;
         }
     });
+
+
+    document.getElementById('stat-total').innerText = jobs.length;
+    document.getElementById('stat-interview').innerText = jobs.filter(j => j.status == 'interview').length;
+    document.getElementById('stat-rejected').innerText = jobs.filter(j => j.status == 'rejected').length;
+    document.getElementById('current-count').innerText = filteredJobs.length;
+
+    grid.innerHTML = "";
+
+    if (filteredJobs.length == 0) {
+        emptyState.classList.remove('hidden');
+        emptyState.classList.add('flex');
+        return;
+    }
+    emptyState.classList.remove('flex');
+    emptyState.classList.add('hidden');
+
+
+    filteredJobs.forEach(function(job) {
+        const card = template.contentEditable.cloneNode(true);
+
+        card.querySelector('.company-name').innerText = job.company;
+        card.querySelector('.job-title').innerText = job.title;
+        card.querySelector('.location').innerText = job.location;
+        card.querySelector('.job-type').innerText = job.type;
+        card.querySelector('.salary').innerText = job.salary;
+        card.querySelector('.description').innerText = job.description;
+
+        const intBtn = card.querySelector('.interview-btn');
+        const rejBtn = card.querySelector('.rejected-btn');
+        const deleteBtn = card.querySelector('.delete-btn');
+
+        if (job.status == 'interview') {
+            intBtn.classList.remove('btn-outline');
+        } else if (job.status == 'rejected') {
+            rejBtn.classList.remove('btn-outline');
+        }
+
+        intBtn.onclick = function () {updateStatus(job.id,'interview'); };
+        rejBtn.onclick = function () {updateStatus(job.id,'rejected'); };
+        deleteBtn.onclick = function () {removeJob(job.id); };
+
+        grid.appendChild(card);
+    });
+
+
+
 }
